@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> websocket echo demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" hreflang="http://bit.ly/cdn-bootstrap-css">
+  <link rel="stylesheet" href="http://bit.ly/cdn-bootstrap-theme">
+  <script src="http://bit.ly/cdn-bootstrap-jq"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+  <script>
+  var ws=new SockJS("http://127.0.0.1:8182/chat");
+  ws.onopen=function(e){
+    console.log('Connection to server opened');
+  }
+
+ws.onmessage=function(e){
+  var data=JSON.parse(e.data);
+  var message=document.getElementById('messages');
+  var message=document.createElement('li');
+  message.innerHTML=data.message;
+  messages.appendChild(message);
+}
+  function sendMessage(){
+    var message=document.getElementById("message");
+
+    ws.send(message.value);
+  }
+
+
+  </script>
+</head>
+<body lang="en">
+<div class="vertical-center">
+<div class="container">
+<p>&nbsp;</p>
+<ul id="messages"></ul>
+<form role="form" id="chat_form" onsubmit="sendMessage(); return false;">
+<div class="form-group">
+<input class="form-control" type="text" name="message" id="message"
+placeholder="Type text to echo in here" value="" autofocus/>
+</div>
+<button type="button" id="send" class="btn btn-primary"
+onclick="sendMessage();">Send!</button>
+</form>
+</div>
+</div>
+<script src="http://bit.ly/cdn-bootstrap-minjs"></script>
+</body>
+</html>

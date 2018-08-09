@@ -1,0 +1,92 @@
+/*...................................................CSS for Header..............................................................*/
+.header{/*this is the header container*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 20px;
+
+  position: relative;
+
+}
+/*first item of header*/
+.header-first-div{
+display: flex;
+justify-content: space-around;
+animation-name: logo;
+animation-duration: 2s;
+animation-fill-mode: forwards;
+
+}
+/*animation for logo*/
+@keyframes logo {
+from{opacity: 0}
+to{opacity: 1}
+}
+/*three line of hamburger*/
+.first-line,.second-line,.third-line{
+
+height: 5px;
+margin: 5px;
+}
+.first-line{
+  animation-name: line;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  animation-duration: 1s;
+}
+.second-line{
+    animation-name: line;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+    animation-duration: 1s;
+  }
+  .third-line{
+    animation-name: line;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    animation-duration: 1s;
+  }
+/*animation for hamburger*/
+@keyframes line {
+  from{background-color: black}
+  to{background-color: #45dcfc}
+  from{width: 0}
+  to{width: 30px}
+}
+
+/*second item of header container*/
+.header-second-div{
+  height: 100%;
+
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color:rgba(0,0,0,0.90);
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      text-align:center;
+
+
+}
+a{
+  text-decoration: none;
+  font-size: 200%;
+  color:  #e9e9e9;
+  transition: 0.5s;
+  display: block;
+}
+
+a:hover{
+  color: red;
+}
+.header-second-div .closebtn{
+  position: absolute;
+  top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}

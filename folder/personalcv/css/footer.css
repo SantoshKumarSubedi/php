@@ -1,0 +1,43 @@
+.footer{/* footer conatiner*/
+display: flex;
+flex-direction: column;
+
+}
+.footer-list{
+  flex: 1;
+  order: 1;
+
+}
+/*footer first item*/
+.footer-copyright{
+  order: 2;
+  flex: 1;
+  text-align: center;
+  margin-top: 15px;
+  color:#e9e9e9;
+}
+/*footer second item*/
+.footer-list{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+.link{
+  font-size: 20px;
+}
+/*media query for desktop view of footer*/
+@media screen and (min-width:720px){
+  .footer{
+    margin-top: 40px;
+    flex-direction: row;
+  }
+  .footer-list{
+    order: 2;
+  }
+  .footer-copyright{
+    margin-top:0px;
+    order: 1;
+
+  }
+}
